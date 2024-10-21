@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+{% block title %}
+    {{ super() }}
+    Welcome To Flask Project
+{% endblock %}
+
+{% block content %}
+    {% if user_ip %}
+        <h2>
+            Tu direccion de ip es esta: {{user_ip}}
+        </h2>
+
+    {% else %}
+        <a href="{{ url_for('index') }}">Volver al inicio</a>
+
+    {% endif %}
+
+    <ul>
+        {% for item in items %}
+            {{macros.render_items(item)}}
+        {% endfor %}
+    </ul>
+{% endblock %}

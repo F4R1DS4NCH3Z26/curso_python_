@@ -1,0 +1,7 @@
+name = "Farid"
+
+
+NOMBRES = "FARID ANDRES "
+APELLIDOS = "SANCHEZ OROZCO"
+print(NOMBRES, APELLIDOS)  
+
