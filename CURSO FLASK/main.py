@@ -1,10 +1,8 @@
 from flask import request, make_response, redirect, render_template, session, url_for, flash
-from app import create_app
 from app.form import LoginForm
 import unittest
-
-app = create_app
-app.config['SECRET_KEY'] = 'CLAVE SEGURA'
+from app import create_app
+app = create_app()
 items = ["item 1", "item 2", "item 3"]
 
 @app.cli.command()

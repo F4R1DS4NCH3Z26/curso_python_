@@ -1,2 +1,2 @@
-class Config():
+class Config:
     SECRET_KEY = 'CLAVE SEGURA'
