@@ -1,10 +1,16 @@
 from . import auth
 from app.form import LoginForm
+from flask import render_template, flash, session, redirect, url_for
 
-@auth.route('/login')
-
+@auth.route('/login', methods=['GET', 'POST'])
 def login():
+    login_form = LoginForm()
     context = {
         "login_form" : LoginForm()
     }
-    return ""
+    if login_form.validate_on_submit():
+        username = login_form.username.data
+        session["username"] = username
+        flash("Nombre de usuario registrado correctamente")
+        return redirect(url_for("index"))
+    return render_template("login.html", **context)

@@ -22,23 +22,15 @@ def index():
     
     return response
 
-@app.route("/show_information_address", methods=['GET', 'POST'])
+@app.route("/show_information_address")
 def show_information():
     user_ip = session.get("user_ip_information")
     username = session.get("username")
-    login_form = LoginForm()
     context = {
         "user_ip":user_ip, 
         "items": items,
-        "login_form":login_form, 
         "username":username, 
         }
-    
-    if login_form.validate_on_submit():
-        username = login_form.username.data
-        session["username"] = username
-        flash("Nombre de usuario registrado correctamente")
-        return redirect(url_for("index"))
     return render_template("ip_information.html", **context)
 
 if __name__ == "__main__":
