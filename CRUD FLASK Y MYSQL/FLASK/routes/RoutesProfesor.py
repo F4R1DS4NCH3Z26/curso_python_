@@ -7,9 +7,9 @@ app = db.app
 mysql = db.mysql
 app_profesor = Blueprint('routes_profesor',__name__)
 
-@app_profesor.route('/')
-def Index():
-    return render_template("/index.html")
+# @app_profesor.route('/')
+# def Index():
+#     return render_template("/index.html")
 
 @app_profesor.route('/profesor')
 def get_profesor():

@@ -5,34 +5,38 @@
     <div class="col-md-4 offset-md-4">
         <div class="card card-body">
             <h2>Login</h2>
-            <div class="mb-3">
-                <label for="" class="form-label">User</label>
-                <input
-                    type="text"
-                    class="form-control"
-                    name="name"
-                    id="name"
-                    aria-describedby="helpId"
-                    placeholder="example@email.com"
-                />
-            </div>
-            <div class="mb-3">
-                <label for="" class="form-label">Password</label>
-                <input
-                    type="password"
-                    class="form-control"
-                    name="password"
-                    id="password"
-                    placeholder="********"
-                />
-            </div>
-            <button
-                type="button"
-                class="btn btn-primary"
-            >
-                Button
-            </button>
-            
+
+            <form action="/login" method="post">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <div class="mb-3">  
+                    <label for="" class="form-label">User</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="username"
+                        id="username"
+                        aria-describedby="helpId"
+                        placeholder="example@email.com"
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Password</label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        name="password"
+                        id="password"
+                        placeholder="********"
+                    />
+                </div>
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Button
+                </button>
+                
+            </form>
             
         </div>
     </div>

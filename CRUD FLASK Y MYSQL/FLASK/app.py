@@ -1,10 +1,18 @@
 from config import db
 from routes.RoutesProfesor import app_profesor
+from routes.RoutesLogin import app_login, status_401,status_404
+from flask_wtf.csrf import CSRFProtect
+
 app = db.app
+csrf = CSRFProtect()
 
 app.register_blueprint(app_profesor)
+app.register_blueprint(app_login)
 
 if __name__ == "__main__":
+    csrf.init_app(app)    
+    app.register_error_handler(401, status_401)
+    app.register_error_handler(404, status_404)
     app.run(port=3000, debug=True)
 
 

@@ -1,0 +1,6 @@
+{% extends 'elements/base.html' %}
+
+{% block container %}
+<h1 class="text-center">Bienvenido, {{ current_user.fullname }}</h1>
+<a class="btn btn-primary" href="/logout">Cerrar sesion</a>
+{% endblock %}
